@@ -46,8 +46,8 @@ ap.add_argument("-m", "--model", required=False,
 ap.add_argument("-c", "--confidence", type=float, default=0.6,
                 help="minimum probability to filter weak detections")
 args = vars(ap.parse_args())
-prott1 = r'C:\Users\Morten\Documents\GitHub\MobileNet-SSD\MobileNetSSD_deploy.prototxt'
-prott2 = r'C:\Users\Morten\Documents\GitHub\MobileNet-SSD\MobileNetSSD_deploy.caffemodel'
+prott1 = r'.\Nural_Network\MobileNetSSD_deploy.prototxt'
+prott2 = r'.\Nural_Network\MobileNetSSD_deploy.caffemodel'
 # initialize the list of class labels MobileNet SSD was trained to
 # detect, then generate a set of bounding box colors for each class
 CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat",
@@ -135,9 +135,9 @@ while True:
                         finalX = startX + halfX
                         finalY = startY + halfY
                         pyautogui.moveTo(finalX, finalY)
-                        win32api.SetCursorPos((finalX, finalY))
-                        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, finalX, finalY, 0, 0)
-                        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, finalX, finalY, 0, 0)
+                        win32api.SetCursorPos((finalX, finalY)) #Comment these three lines to stop it from moving/clicking
+                        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, finalX, finalY, 0, 0) #Comment these three lines to stop it from moving/clicking
+                        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, finalX, finalY, 0, 0) #Comment these three lines to stop it from moving/clicking
                         #print 'Pressed L'
                     if 'HSX' not in locals():
                         HSX = startX

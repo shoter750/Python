@@ -1,7 +1,8 @@
 import pip
-
+import time
+import os
 error_import = """If you get a error make sure python is added to path
-if it doesn't work try running as admin""")
+if it doesn't work try running as admin"""
 watermark = """
 
 ___  ___          _        _
@@ -33,12 +34,6 @@ print('installing dependencies (Unless you installed them ofc)')
 
 
 #Try to import modules error in importing results in installation
-try:
-    import os
-except ImportError:
-    print('Sorry bruh yo missing phat module n i gotta get phat\n')
-    os.system('python -m pip install os') #Not sure if os is a module or not so just incase
-import os
 
 try:
   import requests
@@ -47,16 +42,13 @@ except ImportError:
   os.system('python -m pip install requests')
 # -- above lines try to install requests module if not present
 # -- if all went well, import required module again ( for global access)
-    print(error_import)
+print(error_import)
 import requests
 
-try:
-    import pywin32
-except ImportError:
-    print('Not again i forgot my keys at home now i gotta go and get them\n')
-    os.system('python -m pip install pywin32')
-    print(error_import)
-    import pywin32
+#Relized some errors
+print('Not again i forgot my keys at home now i gotta go and get them\n')
+os.system('python -m pip install pywin32')
+print(error_import)
 
 try:
     import keyboard
@@ -80,18 +72,10 @@ try:
 except ImportError:
     print("Now you can't be serious")
     print("Installing you modules")
-    os.system(python -m pip install pyscreenshot)
+    os.system('python -m pip install pyscreenshot')
     print(error_import)
-    import pyscreenshot
 
-try:
-    import imutils
-except ImportError:
-    print('WTF KYLE')
-    print('You know the deal installing for you')
-    os.system('python -m pip install imutils')
-    print(error_import)
-    import imutils
+
 
 try:
     import numpy
@@ -115,15 +99,6 @@ except ImportError:
     import argparse
 
 try:
-    import opencv-python
-except ImportError:
-    print(""""Spent the last three and a half hours trying to figure out how to do os.system correctly""")
-    print('Installing my pennies')
-    os.systsem('python -m pip install opencv-python')
-    print(error_import)
-    import opencv-python
-
-try:
     import pyautogui
 except ImportError:
     print("Not sure if I'm good at programming... or good at googling")
@@ -137,9 +112,15 @@ try:
 except ImportError:
     print('DONT PANIC!')
     print('installing it for ya you scallywag')
-    os.system(python -m pip install urllib)
+    os.system('python -m pip install urllib')
     print(error_import)
     import urllib
+
+print("installing some more bs just not as sleek")
+#now idk what i did wrong but suddenly os.system didn't work for some so i switched to opening a seconds terminal instead
+os.system("python -m pip install opencv-python")
+os.system("python -m pip install pywin32")
+os.system("python -m pip install imutils")
 
 print("""now that the dependencies are over imma work on the important files for ya""")
 
@@ -173,11 +154,26 @@ r.headers['Content-Type']
 #Writes the content of raw paste in MobileNetSSD_deploy.prototxt
 with open('./Nural_Network/MobileNetSSD_deploy.prototxt', 'a') as output:
     output.write(r.text)
-print('Importing MobileNetSSD_deploy.caffemodel from https://github.com/C-Aniruddh/realtime_object_recognition/raw/master/MobileNetSSD_deploy.caffemodel')
+
+print("Waitin for 10 sec cuz website might think yo booty is a bot ;)")
+time.sleep(10)
+print('Wait over grabbing caffemodel now')
+
+#Request raw post of MobileNetSSD_deploy.caffemodel
+import requests
+r = requests.get('https://raw.githubusercontent.com/chuanqi305/MobileNet-SSD/master/MobileNetSSD_deploy.caffemodel')
+r.headers['Content-Type']
+with open('./Nural_Network/MobileNetSSD_deploy.caffemodel', 'wb') as output:
+    output.write(r.content)
 
 
-#using cleaner method after being informed by gooogle XD
-deploy = urllib.URLopener()
-deploy.retrieve("https://github.com/chuanqi305/MobileNet-SSD/raw/master/MobileNetSSD_deploy.caffemodel", "./Nural_Network/MobileNetSSD_deploy.caffemodel")
 
-print("it's almost over now just one more thing")
+print("it's almost over now just one more thing the main script")
+
+import requests
+r = requests.get('https://raw.githubusercontent.com/GoByeBye/Python/master/Demonslayers%20nural%20network%20installer/Happy%20fun%20times.py')
+r.headers['Content-Type']
+with open('hack.py', 'wb') as output:
+    output.write(r.content)
+
+print('all done now just start up fortnite and run hack.py')
